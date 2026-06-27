@@ -25,10 +25,10 @@ export default function EnquiryEngine() {
     <section id="enquiry" className="relative py-16 bg-transparent">
       <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="grid md:grid-cols-12 gap-6 items-stretch">
+        <div className="flex flex-col md:flex-row gap-6 items-stretch w-full">
           
           {/* Left Column: Contact Info */}
-          <div className="md:col-span-5 flex flex-col gap-4">
+          <div className="w-full md:w-5/12 flex flex-col gap-4">
             <ScrollReveal delay={0.1} className="h-full">
               <BorderGlow glowColor="148 100 30" borderRadius={16} className="h-full">
                 <SpotlightCard className="h-full bg-white/70 backdrop-blur-md p-5 flex items-center gap-4 border-none !rounded-[16px]">
@@ -103,87 +103,88 @@ export default function EnquiryEngine() {
           </div>
 
           {/* Right Column: Enquiry Form */}
-          <ScrollReveal delay={0.3} className="md:col-span-7 h-full">
-            <BorderGlow glowColor="148 100 30" borderRadius={16} className="h-full">
-              <SpotlightCard className="h-full bg-white/80 backdrop-blur-xl p-8 border-none !rounded-[16px] flex flex-col relative overflow-hidden">
-                
-                {formState === "success" && (
-                  <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-white/95 backdrop-blur-md">
-                    <div className="w-14 h-14 rounded-full bg-emerald-50 text-emerald-base flex items-center justify-center text-2xl mb-3">
-                      ✅
+          <div className="w-full md:w-7/12 h-full">
+            <ScrollReveal delay={0.3} className="h-full">
+              <BorderGlow glowColor="148 100 30" borderRadius={16} className="h-full">
+                <SpotlightCard className="h-full bg-white/80 backdrop-blur-xl p-8 border-none !rounded-[16px] flex flex-col relative overflow-hidden">
+                  
+                  {formState === "success" && (
+                    <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-white/95 backdrop-blur-md">
+                      <div className="w-14 h-14 rounded-full bg-emerald-50 text-emerald-base flex items-center justify-center text-2xl mb-3">
+                        ✅
+                      </div>
+                      <h3 className="text-gray-900 text-lg font-bold mb-1">Enquiry Submitted</h3>
+                      <p className="text-gray-500 text-sm">We&apos;ll be in touch shortly.</p>
                     </div>
-                    <h3 className="text-gray-900 text-lg font-bold mb-1">Enquiry Submitted</h3>
-                    <p className="text-gray-500 text-sm">We&apos;ll be in touch shortly.</p>
-                  </div>
-                )}
+                  )}
 
-                <h3 className="text-2xl font-[family-name:var(--font-heading)] font-bold text-gray-900 mb-6">Enquiry Form</h3>
-                
-                <form onSubmit={handleSubmit} className="space-y-4 flex-1 flex flex-col">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-gray-700 text-xs font-semibold mb-1.5">Student Name *</label>
-                      <input required type="text" placeholder="Enter student name" value={formData.studentName} onChange={(e) => setFormData({...formData, studentName: e.target.value})} className="w-full bg-gray-50/50 border border-gray-200 rounded-lg px-3 py-2 text-gray-900 focus:border-emerald-base focus:bg-white outline-none transition-colors text-sm placeholder:text-gray-400" />
+                  <h3 className="text-2xl font-[family-name:var(--font-heading)] font-bold text-gray-900 mb-6">Enquiry Form</h3>
+                  
+                  <form onSubmit={handleSubmit} className="space-y-4 flex-1 flex flex-col">
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-gray-700 text-xs font-semibold mb-1.5">Student Name *</label>
+                        <input required type="text" placeholder="Enter student name" value={formData.studentName} onChange={(e) => setFormData({...formData, studentName: e.target.value})} className="w-full bg-gray-50/50 border border-gray-200 rounded-lg px-3 py-2 text-gray-900 focus:border-emerald-base focus:bg-white outline-none transition-colors text-sm placeholder:text-gray-400" />
+                      </div>
+                      <div>
+                        <label className="block text-gray-700 text-xs font-semibold mb-1.5">Parent Name *</label>
+                        <input required type="text" placeholder="Enter parent name" value={formData.parentName} onChange={(e) => setFormData({...formData, parentName: e.target.value})} className="w-full bg-gray-50/50 border border-gray-200 rounded-lg px-3 py-2 text-gray-900 focus:border-emerald-base focus:bg-white outline-none transition-colors text-sm placeholder:text-gray-400" />
+                      </div>
                     </div>
-                    <div>
-                      <label className="block text-gray-700 text-xs font-semibold mb-1.5">Parent Name *</label>
-                      <input required type="text" placeholder="Enter parent name" value={formData.parentName} onChange={(e) => setFormData({...formData, parentName: e.target.value})} className="w-full bg-gray-50/50 border border-gray-200 rounded-lg px-3 py-2 text-gray-900 focus:border-emerald-base focus:bg-white outline-none transition-colors text-sm placeholder:text-gray-400" />
-                    </div>
-                  </div>
 
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-gray-700 text-xs font-semibold mb-1.5">Phone Number *</label>
-                      <input required type="tel" placeholder="+91 XXXXX XXXXX" pattern="[6-9][0-9]{9}" maxLength={10} value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} className="w-full bg-gray-50/50 border border-gray-200 rounded-lg px-3 py-2 text-gray-900 focus:border-emerald-base focus:bg-white outline-none transition-colors text-sm placeholder:text-gray-400" />
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-gray-700 text-xs font-semibold mb-1.5">Phone Number *</label>
+                        <input required type="tel" placeholder="+91 XXXXX XXXXX" pattern="[6-9][0-9]{9}" maxLength={10} value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} className="w-full bg-gray-50/50 border border-gray-200 rounded-lg px-3 py-2 text-gray-900 focus:border-emerald-base focus:bg-white outline-none transition-colors text-sm placeholder:text-gray-400" />
+                      </div>
+                      <div>
+                        <label className="block text-gray-700 text-xs font-semibold mb-1.5">Email</label>
+                        <input type="email" placeholder="email@example.com" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} className="w-full bg-gray-50/50 border border-gray-200 rounded-lg px-3 py-2 text-gray-900 focus:border-emerald-base focus:bg-white outline-none transition-colors text-sm placeholder:text-gray-400" />
+                      </div>
                     </div>
-                    <div>
-                      <label className="block text-gray-700 text-xs font-semibold mb-1.5">Email</label>
-                      <input type="email" placeholder="email@example.com" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} className="w-full bg-gray-50/50 border border-gray-200 rounded-lg px-3 py-2 text-gray-900 focus:border-emerald-base focus:bg-white outline-none transition-colors text-sm placeholder:text-gray-400" />
+
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-gray-700 text-xs font-semibold mb-1.5">Current Class *</label>
+                        <select required value={formData.currentClass} onChange={(e) => setFormData({...formData, currentClass: e.target.value})} className="w-full bg-gray-50/50 border border-gray-200 rounded-lg px-3 py-2 text-gray-900 focus:border-emerald-base focus:bg-white outline-none transition-colors text-sm">
+                          <option value="">Select class</option>
+                          <option value="10th">10th</option>
+                          <option value="11th">11th (Jr. Inter)</option>
+                          <option value="12th">12th (Sr. Inter)</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label className="block text-gray-700 text-xs font-semibold mb-1.5">Course Interested *</label>
+                        <select required value={formData.course} onChange={(e) => setFormData({...formData, course: e.target.value})} className="w-full bg-gray-50/50 border border-gray-200 rounded-lg px-3 py-2 text-gray-900 focus:border-emerald-base focus:bg-white outline-none transition-colors text-sm">
+                          <option value="">Select course</option>
+                          <option value="MPC">M.P.C</option>
+                          <option value="BiPC">Bi.P.C</option>
+                        </select>
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-gray-700 text-xs font-semibold mb-1.5">Current Class *</label>
-                      <select required value={formData.currentClass} onChange={(e) => setFormData({...formData, currentClass: e.target.value})} className="w-full bg-gray-50/50 border border-gray-200 rounded-lg px-3 py-2 text-gray-900 focus:border-emerald-base focus:bg-white outline-none transition-colors text-sm">
-                        <option value="">Select class</option>
-                        <option value="10th">10th</option>
-                        <option value="11th">11th (Jr. Inter)</option>
-                        <option value="12th">12th (Sr. Inter)</option>
-                      </select>
+                    <div className="flex-1 pb-4">
+                      <label className="block text-gray-700 text-xs font-semibold mb-1.5">Message (Optional)</label>
+                      <textarea placeholder="Any specific queries or requirements..." rows={4} value={formData.message} onChange={(e) => setFormData({...formData, message: e.target.value})} className="w-full bg-gray-50/50 border border-gray-200 rounded-lg px-3 py-2 text-gray-900 focus:border-emerald-base focus:bg-white outline-none transition-colors text-sm placeholder:text-gray-400 resize-none h-full min-h-[100px]"></textarea>
                     </div>
-                    <div>
-                      <label className="block text-gray-700 text-xs font-semibold mb-1.5">Course Interested *</label>
-                      <select required value={formData.course} onChange={(e) => setFormData({...formData, course: e.target.value})} className="w-full bg-gray-50/50 border border-gray-200 rounded-lg px-3 py-2 text-gray-900 focus:border-emerald-base focus:bg-white outline-none transition-colors text-sm">
-                        <option value="">Select course</option>
-                        <option value="MPC">M.P.C</option>
-                        <option value="BiPC">Bi.P.C</option>
-                      </select>
+
+                    <div className="pt-2">
+                      <button type="submit" disabled={formState === "submitting"} className="w-full px-6 py-3 rounded-lg font-bold text-sm bg-emerald-base text-white hover:bg-emerald-deep transition-colors shadow-md flex justify-center items-center gap-2">
+                        {formState === "submitting" ? "Submitting..." : (
+                          <>
+                            Submit Enquiry 
+                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                            </svg>
+                          </>
+                        )}
+                      </button>
                     </div>
-                  </div>
-
-                  <div className="flex-1 pb-4">
-                    <label className="block text-gray-700 text-xs font-semibold mb-1.5">Message (Optional)</label>
-                    <textarea placeholder="Any specific queries or requirements..." rows={4} value={formData.message} onChange={(e) => setFormData({...formData, message: e.target.value})} className="w-full bg-gray-50/50 border border-gray-200 rounded-lg px-3 py-2 text-gray-900 focus:border-emerald-base focus:bg-white outline-none transition-colors text-sm placeholder:text-gray-400 resize-none h-full min-h-[100px]"></textarea>
-                  </div>
-
-                  <div className="pt-2">
-                    <button type="submit" disabled={formState === "submitting"} className="w-full px-6 py-3 rounded-lg font-bold text-sm bg-emerald-base text-white hover:bg-emerald-deep transition-colors shadow-md flex justify-center items-center gap-2">
-                      {formState === "submitting" ? "Submitting..." : (
-                        <>
-                          Submit Enquiry 
-                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                          </svg>
-                        </>
-                      )}
-                    </button>
-                  </div>
-                </form>
-              </SpotlightCard>
-            </BorderGlow>
-          </ScrollReveal>
-
+                  </form>
+                </SpotlightCard>
+              </BorderGlow>
+            </ScrollReveal>
+          </div>
         </div>
         
         <div className="mt-12 text-center flex flex-col sm:flex-row items-center justify-center pt-5 border-t border-gray-200 text-gray-500 text-[10px] font-medium">
