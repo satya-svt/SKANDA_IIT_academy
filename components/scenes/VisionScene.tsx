@@ -50,12 +50,12 @@ export default function VisionScene() {
             ))}
           </div>
 
-          <div className="md:col-span-5">
+          <div className="md:col-span-5 flex justify-center items-center">
             <ScrollReveal delay={0.3}>
-              <div className="bento-card p-4 bg-white/70 backdrop-blur-sm flex flex-col items-center text-center">
-                <div className="w-28 h-28 rounded-xl overflow-hidden mb-2 shadow-sm border border-gray-200 bg-white">
+              <div className="flex flex-col items-center text-center">
+                <div className="w-32 h-32 rounded-xl overflow-hidden mb-3 shadow-[0_0_30px_rgba(255,255,255,0.8)] ring-2 ring-white/50 bg-white">
                   {/* Founder Image */}
-                  <Image src="/images/founder.png" alt="Inspiration of Sri Skanda" width={112} height={112} className="object-cover w-full h-full" />
+                  <Image src="/images/founder.png" alt="Inspiration of Sri Skanda" width={128} height={128} className="object-cover w-full h-full" />
                 </div>
                 <h4 className="text-[10px] font-bold text-gray-900 uppercase tracking-wide">Inspiration of Sri Skanda</h4>
                 <p className="text-[9px] text-gray-500 mt-0.5">శ్రీమతి జడరపు లక్ష్మీ సితారామమ్మ గారు</p>
