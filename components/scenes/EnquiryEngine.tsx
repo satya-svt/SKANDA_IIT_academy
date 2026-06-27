@@ -25,10 +25,10 @@ export default function EnquiryEngine() {
     <section id="enquiry" className="relative py-16 bg-transparent">
       <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="flex flex-row gap-4 md:gap-6 items-stretch w-full">
+        <div className="flex flex-col lg:flex-row gap-6 items-stretch w-full">
           
           {/* Left Column: Contact Info */}
-          <div className="w-[45%] flex flex-col gap-4">
+          <div className="w-full lg:w-[45%] flex flex-col gap-4">
             <ScrollReveal delay={0.1} className="h-full">
               <BorderGlow glowColor="148 100 30" borderRadius={16} className="h-full">
                 <SpotlightCard className="h-full bg-white/70 backdrop-blur-md p-5 flex items-center gap-4 border-none !rounded-[16px]">
@@ -103,7 +103,7 @@ export default function EnquiryEngine() {
           </div>
 
           {/* Right Column: Enquiry Form */}
-          <div className="w-[55%] h-full">
+          <div className="w-full lg:w-[55%] h-full">
             <ScrollReveal delay={0.3} className="h-full">
               <BorderGlow glowColor="148 100 30" borderRadius={16} className="h-full">
                 <SpotlightCard className="h-full bg-white/80 backdrop-blur-xl p-8 border-none !rounded-[16px] flex flex-col relative overflow-hidden">
