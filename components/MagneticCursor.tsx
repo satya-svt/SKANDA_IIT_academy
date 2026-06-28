@@ -7,7 +7,7 @@ export default function MagneticCursor() {
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
-  const pos = useRef({ x: 0, y: 0 });
+  // Removed unused pos ref
   const mouse = useRef({ x: 0, y: 0 });
   const isTouchDevice = useRef(false);
 

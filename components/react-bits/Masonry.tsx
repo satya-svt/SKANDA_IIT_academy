@@ -18,6 +18,7 @@ const useMedia = (queries: string[], values: number[], defaultValue: number) => 
     const mediaQueries = queries.map(q => window.matchMedia(q));
     mediaQueries.forEach(mq => mq.addEventListener('change', handler));
     return () => mediaQueries.forEach(mq => mq.removeEventListener('change', handler));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [queries]);
 
   return value;
@@ -85,7 +86,7 @@ const Masonry = ({
   const [containerRef, { width }] = useMeasure();
   const [imagesReady, setImagesReady] = useState(false);
 
-  const getInitialPosition = (item: any) => {
+  const getInitialPosition = (item: { x: number; y: number; w: number; h: number }) => {
     const containerRect = containerRef.current?.getBoundingClientRect();
     if (!containerRect) return { x: item.x, y: item.y };
 
@@ -184,7 +185,7 @@ const Masonry = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [grid, imagesReady, stagger, animateFrom, blurToFocus, duration, ease]);
 
-  const handleMouseEnter = (e: React.MouseEvent, item: any) => {
+  const handleMouseEnter = (e: React.MouseEvent, item: { id: string | number }) => {
     const element = e.currentTarget;
     const selector = `[data-key="${item.id}"]`;
 
@@ -207,7 +208,7 @@ const Masonry = ({
     }
   };
 
-  const handleMouseLeave = (e: React.MouseEvent, item: any) => {
+  const handleMouseLeave = (e: React.MouseEvent, item: { id: string | number }) => {
     const element = e.currentTarget;
     const selector = `[data-key="${item.id}"]`;
 

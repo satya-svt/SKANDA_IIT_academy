@@ -36,7 +36,17 @@ function buildGradientVars(colors: string[]) {
 function easeOutCubic(x: number) { return 1 - Math.pow(1 - x, 3); }
 function easeInCubic(x: number) { return x * x * x; }
 
-function animateValue({ start = 0, end = 100, duration = 1000, delay = 0, ease = easeOutCubic, onUpdate, onEnd }: any) {
+interface AnimateValueProps {
+  start?: number;
+  end?: number;
+  duration?: number;
+  delay?: number;
+  ease?: (x: number) => number;
+  onUpdate: (v: number) => void;
+  onEnd?: () => void;
+}
+
+function animateValue({ start = 0, end = 100, duration = 1000, delay = 0, ease = easeOutCubic, onUpdate, onEnd }: AnimateValueProps) {
   const t0 = performance.now() + delay;
   function tick() {
     const elapsed = performance.now() - t0;
@@ -46,6 +56,21 @@ function animateValue({ start = 0, end = 100, duration = 1000, delay = 0, ease =
     else if (onEnd) onEnd();
   }
   setTimeout(() => requestAnimationFrame(tick), delay);
+}
+
+export interface BorderGlowProps {
+  children?: React.ReactNode;
+  className?: string;
+  edgeSensitivity?: number;
+  glowColor?: string;
+  backgroundColor?: string;
+  borderRadius?: number;
+  glowRadius?: number;
+  glowIntensity?: number;
+  coneSpread?: number;
+  animated?: boolean;
+  colors?: string[];
+  fillOpacity?: number;
 }
 
 export const BorderGlow = ({
@@ -61,7 +86,7 @@ export const BorderGlow = ({
   animated = false,
   colors = ['#004B23', '#C5962E', '#F4E285'],
   fillOpacity = 0.1,
-}: any) => {
+}: BorderGlowProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
 
   const getCenterOfElement = useCallback((el: HTMLElement) => {

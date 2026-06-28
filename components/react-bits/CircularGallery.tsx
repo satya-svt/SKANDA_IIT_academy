@@ -17,6 +17,7 @@ export function CircularGallery({
   
   // Rotate the entire gallery based on scroll
   const rotation = useTransform(scrollYProgress, [0, 1], [0, -360]);
+  const inverseRotation = useTransform(rotation, (r) => -r);
 
   return (
     <div ref={containerRef} className={`relative h-[600px] w-full flex items-center justify-center overflow-hidden ${className}`}>
@@ -35,7 +36,7 @@ export function CircularGallery({
               }}
             >
               {/* Counter rotate the item so it stays upright relative to the rotating parent */}
-              <motion.div style={{ rotate: useTransform(rotation, (r) => -r) }}>
+              <motion.div style={{ rotate: inverseRotation }}>
                 {item}
               </motion.div>
             </div>

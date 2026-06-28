@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useInView, useSpring, useTransform, motion } from "framer-motion";
 
 export function CountUp({
