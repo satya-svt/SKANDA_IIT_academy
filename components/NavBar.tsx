@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
@@ -23,8 +24,8 @@ export function NavBar({ className = "" }: { className?: string }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav className="flex items-center justify-between h-20">
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="text-emerald-base font-bold text-xl tracking-widest">
-               SKANDA
+            <Link href="/" className="flex items-center">
+               <Image src="/images/logo.jpeg" alt="Skanda Logo" width={48} height={48} className="object-contain rounded-full" />
             </Link>
           </div>
           

@@ -42,7 +42,7 @@ export function HeroSlider() {
           transition={{ delay: 0.5 }}
           className="text-4xl md:text-6xl font-bold text-white tracking-tight"
         >
-          Sri Skanda Academy
+          Sri Skanda IIT Academy
         </motion.h1>
         <motion.p 
           initial={{ y: 20, opacity: 0 }}
