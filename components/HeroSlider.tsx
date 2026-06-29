@@ -36,15 +36,15 @@ export function HeroSlider() {
       </AnimatePresence>
 
       <div className="relative z-10 w-full h-full flex flex-col items-center justify-center text-center px-4">
-        <motion.h1 
+        <motion.h1
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.5 }}
           className="text-4xl md:text-6xl font-bold text-white tracking-tight"
         >
-          Sri Skanda IIT Academy
+          Sri Skanda IIT and NEET Academy
         </motion.h1>
-        <motion.p 
+        <motion.p
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.7 }}
