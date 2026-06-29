@@ -2,7 +2,6 @@
 
 import { ScrollReveal } from "@/components/react-bits/ScrollReveal";
 import { ScrollFloat } from "@/components/react-bits/ScrollFloat";
-import Image from "next/image";
 
 const tenets = [
   "జీవిత సవాళ్లను ఎదుర్కొనే ఆత్మవిశ్వాసం.",
@@ -29,7 +28,7 @@ export default function VisionScene() {
 
         <div className="grid md:grid-cols-12 gap-5 mb-8 items-center">
           
-          <div className="md:col-span-7 space-y-3">
+          <div className="md:col-span-12 space-y-3 max-w-2xl mx-auto">
             <ScrollReveal>
               <h3 className="text-base font-semibold text-gray-900 mb-3 border-b border-gray-200/50 pb-1.5">
                 మేము ప్రతి విద్యార్థిలో పెంపొందించదలచిన విలువలు:
@@ -50,18 +49,7 @@ export default function VisionScene() {
             ))}
           </div>
 
-          <div className="md:col-span-5 flex justify-center items-center">
-            <ScrollReveal delay={0.3}>
-              <div className="flex flex-col items-center text-center">
-                <div className="w-32 h-32 rounded-xl overflow-hidden mb-3 shadow-[0_0_30px_rgba(255,255,255,0.8)] ring-2 ring-white/50 bg-white">
-                  {/* Founder Image */}
-                  <Image src="/images/founder.png" alt="Inspiration of Sri Skanda" width={128} height={128} className="object-cover w-full h-full" />
-                </div>
-                <h4 className="text-[10px] font-bold text-gray-900 uppercase tracking-wide">Inspiration of Sri Skanda</h4>
-                <p className="text-[9px] text-gray-500 mt-0.5">శ్రీమతి జడరపు లక్ష్మీ సితారామమ్మ గారు</p>
-              </div>
-            </ScrollReveal>
-          </div>
+
 
         </div>
 
