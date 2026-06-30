@@ -5,9 +5,11 @@ import { motion, useScroll, useTransform } from "framer-motion";
 export function CircularGallery({
   items,
   className = "",
+  centerElement,
 }: {
   items: React.ReactNode[];
   className?: string;
+  centerElement?: React.ReactNode;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -43,6 +45,11 @@ export function CircularGallery({
           );
         })}
       </motion.div>
+      {centerElement && (
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+          {centerElement}
+        </div>
+      )}
     </div>
   );
 }

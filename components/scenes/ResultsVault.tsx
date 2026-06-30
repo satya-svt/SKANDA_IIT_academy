@@ -75,7 +75,14 @@ export default function ResultsVault() {
       </div>
 
       <ScrollReveal delay={0.2}>
-        <CircularGallery items={galleryItems} />
+        <CircularGallery 
+          items={galleryItems} 
+          centerElement={
+            <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden shadow-xl ring-4 ring-emerald-50 bg-white">
+              <Image src="/images/logo.jpeg" alt="Sri Skanda Logo" width={128} height={128} className="object-cover w-full h-full" />
+            </div>
+          }
+        />
       </ScrollReveal>
     </section>
   );
