@@ -28,6 +28,13 @@
     color: var(--color-text-main);
     -webkit-font-smoothing: antialiased;
   }
+  
+  /* Force hide Next.js dev indicator and Vercel Toolbar */
+  nextjs-portal, 
+  vercel-live,
+  #vercel-toolbar {
+    display: none !important;
+  }
 }
 
 @layer utilities {
