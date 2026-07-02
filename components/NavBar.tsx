@@ -13,7 +13,7 @@ export function NavBar({ className = "" }: { className?: string }) {
 
   const navItems = [
     { name: "Home", href: "/" },
-    { name: "Vision", href: "/vision" },
+    { name: "About Us", href: "/about-us" },
     { name: "Faculty", href: "/faculty" },
     { name: "Results", href: "/results" },
     { name: "Events", href: "/events" },
